@@ -1,17 +1,37 @@
 {
   "manifest_version": 3,
-  "name": "Paramount+ for Opera GX",
+  "name": "Browser Fix for Paramount+",
   "version": "1.0.0",
   "description": "Presents Opera GX as Chrome on Paramount+ to address unsupported-browser checks.",
   "minimum_chrome_version": "111",
-  "permissions": ["declarativeNetRequestWithHostAccess"],
-  "host_permissions": ["https://*.paramountplus.com/*"],
-  "background": { "service_worker": "background.js" },
-  "content_scripts": [{
-    "matches": ["https://*.paramountplus.com/*"],
-    "js": ["identity.js", "content.js"],
-    "run_at": "document_start",
-    "world": "MAIN",
-    "all_frames": true
-  }]
+  "permissions": [
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "https://*.paramountplus.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.paramountplus.com/*"
+      ],
+      "js": [
+        "identity.js",
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    }
+  ],
+  "homepage_url": "https://github.com/magarble/paramount-gx",
+  "icons": {
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png",
+    "32": "icon32.png"
+  }
 }

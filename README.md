@@ -1,33 +1,48 @@
-# Paramount+ for Opera GX
+# Browser Fix for Paramount+
 
-A Manifest V3 extension that presents Opera GX as Chrome on Paramount+ to address unsupported-browser checks (including error 100).
+An unofficial, lightweight extension that helps Opera GX play Paramount+ when the site rejects its browser identity (including unsupported-browser error 100).
 
-## Install
+[**Download the latest release**](https://github.com/magarble/paramount-gx/releases/latest) · [Report a problem](https://github.com/magarble/paramount-gx/issues) · [Privacy](PRIVACY.md) · [MIT licence](LICENSE)
 
-1. Download this repository using **Code → Download ZIP**, then extract it.
-2. Open `opera://extensions` in Opera GX.
-3. Enable **Developer mode**.
-4. Choose **Load unpacked** and select the extracted folder containing `manifest.json`.
-5. Reload the Paramount+ video tab.
+## Install in Opera GX
 
-Keep the extracted folder in place while the extension is installed. To disable it, turn it off at `opera://extensions` and reload Paramount+.
+**An Add to Opera store button is not available yet.** The current download needs a short manual installation:
 
-## What it changes
+1. [Open the latest release](https://github.com/magarble/paramount-gx/releases/latest) and download **browser-fix-paramount-plus-1.0.0.zip**.
+2. Extract the ZIP into a permanent folder.
+3. Open `opera://extensions` in Opera GX and enable **Developer mode**.
+4. Click **Load unpacked** and select the extracted folder containing `manifest.json`.
+5. Reload your Paramount+ video tab. No extension settings are needed.
 
-- Removes Opera branding from the HTTP User-Agent and JavaScript browser identity.
-- Presents Chrome and Chromium brands in browser client hints.
-- Retains the browser's underlying Chromium version.
-- Runs only on HTTPS `paramountplus.com` pages and subdomains; request rules target that domain.
+Keep the folder in place while installed. A downloaded ZIP is a package, not an automatic installer. Downloading the source using **Code → Download ZIP** also works after extraction.
 
-No accounts, cookies, viewing data or settings are collected or sent to another service. The extension does not modify DRM, subscriptions, location restrictions or video codecs. Playback depends on the browser's existing media support.
+### Updates and removal
 
-## Validation status
+Unpacked installations do not receive automatic updates. Download a new release, extract it over the installed folder and click the extension's reload button at `opera://extensions`. To disable or remove it, use that same page and reload Paramount+.
 
-Local checks passed for domain permissions, User-Agent cleanup, client hints, preserved engine version and request-rule construction. End-to-end installation and video playback have **not yet been verified**.
+## How it works
 
-## References
+The extension removes Opera branding from the User-Agent exposed to Paramount+ and presents Chrome/Chromium brands in browser client hints. It retains the browser's actual underlying Chromium version. The changes happen automatically on HTTPS Paramount+ pages and requests to that domain.
+
+It does not change DRM, subscriptions, location restrictions, advertising, or video codecs. You still need normal access to Paramount+. It cannot fix every playback issue, and site updates may affect compatibility.
+
+## Privacy and permissions
+
+No analytics, advertising, external code or data collection. It uses only Paramount+ site access and local request-header rules. See the [privacy policy](PRIVACY.md) for details.
+
+## Tested status
+
+Playback was confirmed working by the maintainer in Opera GX on Windows on 19 October 2026. Local code checks also passed for permission scope, User-Agent cleanup, client hints, preserved engine version and request-rule construction. Other browsers, operating systems and future site versions are not verified.
+
+## One-click installation
+
+A store listing must be submitted to and approved by Opera before this project can offer **Add to Opera** and store-managed updates. See [publishing information](PUBLISHING.md). There is no live store listing yet.
+
+## Licence
+
+[MIT](LICENSE), copyright 2026 magarble. You may use, modify and redistribute the code subject to that licence. Paramount and Opera names remain the property of their respective owners; no affiliation or endorsement is claimed.
+
+## Implementation references
 
 - [Chrome request-header rules](https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest)
 - [Content script configuration](https://developer.chrome.com/docs/extensions/reference/manifest/content-scripts)
-
-This is an unofficial compatibility extension, not affiliated with Paramount or Opera.
